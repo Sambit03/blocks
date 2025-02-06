@@ -36,6 +36,11 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
+"@bgd-labs/aave-address-book@^4.9.0":
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/@bgd-labs/aave-address-book/-/aave-address-book-4.9.0.tgz#b4b1be4bf14fb7f3e76be0dd8583bbdaf09b564c"
+  integrity sha512-abw6Z1p8Kt0DSlXXWs8kiiadONS49KgcOIn6WW7fSMzFRFZ3HYoRUt/hu6uNfEmbQ5cO9Qe+leAp2O+o9oovWw==
+
 "@coinbase/wallet-sdk@4.2.3":
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/@coinbase/wallet-sdk/-/wallet-sdk-4.2.3.tgz#a30fa0605b24bc42c37f52a62d2442bcbb7734af"
@@ -4397,6 +4402,11 @@ sonic-boom@^2.2.1:
   integrity sha512-kuonw1YOYYNOve5iHdSahXPOK49GqwA+LZhI6Wz/l0rP57iKyXXIHaRagOBHAPmGwJC6od2Z9zgvZ5loSgMlVg==
   dependencies:
     atomic-sleep "^1.0.0"
+
+sonner@^1.7.4:
+  version "1.7.4"
+  resolved "https://registry.yarnpkg.com/sonner/-/sonner-1.7.4.tgz#4c39820db86623800a17115c8970796aa862133a"
+  integrity sha512-DIS8z4PfJRbIyfVFDVnK9rO3eYDtse4Omcm6bt0oEr5/jtLgysmjuBl1frJ9E/EQZrFmKx2A8m/s5s9CRXIzhw==
 
 source-map-js@^1.0.2, source-map-js@^1.2.1:
   version "1.2.1"

@@ -9,7 +9,7 @@ import {
   http,
 } from "viem";
 import { sepolia } from "viem/chains";
-import POOL_ABI from "@/abis/POOL_ABI.json";
+import POOL_ABI from "@/abi/POOL_ABI.json";
 
 // Contract addresses
 export const POOL_ADDRESS = AaveV3Sepolia.POOL;
@@ -22,7 +22,7 @@ const defaultPublicClient = createPublicClient({
 });
 
 // ERC20 ABI for approvals
-const ERC20_ABI = [
+export const ERC20_ABI = [
   {
     inputs: [
       { name: "spender", type: "address" },

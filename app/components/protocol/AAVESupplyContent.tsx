@@ -8,14 +8,16 @@ import {
   useBalance,
 } from "wagmi";
 import { toast } from "sonner";
+import { CONTRACTS } from "@/app/config/constants";
+import { formatEther } from "ethers";
 import {
-  checkAllowance,
   approveStEth,
-  supplyStEth,
-  parseAmount,
+  checkAllowance,
+  ERC20_ABI,
   getUserData,
-} from "@/utils/aave";
-import { CONTRACTS } from "@/config/constants";
+  parseAmount,
+  supplyStEth,
+} from "@/app/utils/aave";
 
 export function AaveSupplyContent() {
   const { address, isConnected } = useAccount();
@@ -29,22 +31,31 @@ export function AaveSupplyContent() {
   const [allowance, setAllowance] = useState(BigInt(0));
   const [isApproving, setIsApproving] = useState(false);
 
+  const { data: balance } = useBalance({
+    address,
+    token: CONTRACTS.WSTETH,
+  });
+  console.log(balance);
+
   const fetchData = async () => {
     if (!address || !publicClient) return;
     try {
       const balance = await publicClient.readContract({
         address: CONTRACTS.WSTETH,
         abi: ERC20_ABI,
-        functionName: "balanceOf",
-        args: [address],
+        functionName: "allowance",
+        args: [address, address],
       });
       setUserBalance(formatEther(balance));
+
+      console.log(userBalance);
 
       const currentAllowance = await checkAllowance({
         publicClient,
         stEthAddress: CONTRACTS.WSTETH,
         userAddress: address,
       });
+
       setAllowance(currentAllowance);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -151,7 +162,7 @@ export function AaveSupplyContent() {
           onChange={(e) => setAmount(e.target.value)}
           placeholder="0.0"
           disabled={isLoading || isApproving}
-          className="w-full px-3 py-2 border rounded bg-gray-50 pr-16"
+          className="w-full px-3 py-2 border rounded text-gray-700 bg-gray-50 text pr-16"
         />
         <button
           onClick={handleMaxClick}
@@ -192,4 +203,3 @@ export function AaveSupplyContent() {
     </div>
   );
 }
-  

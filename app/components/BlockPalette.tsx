@@ -12,13 +12,15 @@ const BlockPalette: React.FC<BlockPaletteProps> = ({ onAddBlock }) => {
 
   return (
     <div className="w-64 bg-white p-4 rounded shadow">
-      <h2 className="text-lg font-semibold mb-4">Available Blocks</h2>
+      <h2 className="text-lg font-semibold mb-4 text-gray-700">
+        Available Blocks
+      </h2>
       <div className="space-y-2">
         {blockTypes.map((block) => (
           <button
             key={block.id}
             onClick={() => onAddBlock(block.id)}
-            className="w-full px-4 py-2 text-left hover:bg-gray-100 rounded"
+            className="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-700 hover:text-white rounded"
           >
             {block.name}
           </button>
